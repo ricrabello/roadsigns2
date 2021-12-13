@@ -48,14 +48,14 @@ if __name__ == '__main__':
 
         
 
-        # Find two converging sloped lines
-        lines = cv2.HoughLinesP(masked, 1, np.pi / 180, 100, np.array([]), minLineLength=100, maxLineGap=10)
+        # # Find two converging sloped lines
+        # //lines = cv2.HoughLinesP(masked, 1, np.pi / 180, 100, np.array([]), minLineLength=100, maxLineGap=10)
 
-        # Draw lines on the original image
-        if lines is not None:
-            for line in lines:
-                x1, y1, x2, y2 = line[0]
-                cv2.line(drawing, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        # # Draw lines on the original image
+        # if lines is not None:
+        #     for line in lines:
+        #         x1, y1, x2, y2 = line[0]
+        #         cv2.line(drawing, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
 
         # Find contours with area > 1000 and check if yhey are a Circle
@@ -111,6 +111,7 @@ if __name__ == '__main__':
 
         # Display the resulting frame
         cv2.imshow('frame', frame)
+        cv2.imshow('mask', canny)
 
        
         if cv2.waitKey(1) & 0xFF == ord('q'):
